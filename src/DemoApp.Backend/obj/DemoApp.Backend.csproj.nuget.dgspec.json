@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\chris\\dev\\repos\\WeatherForecastDemoApp\\src\\DemoApp.Backend\\DemoApp.Backend.csproj": {}
+    "C:\\Users\\chris\\dev\\repos\\DemoFullstackApplication\\src\\DemoApp.Backend\\DemoApp.Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\chris\\dev\\repos\\WeatherForecastDemoApp\\src\\DemoApp.Backend\\DemoApp.Backend.csproj": {
+    "C:\\Users\\chris\\dev\\repos\\DemoFullstackApplication\\src\\DemoApp.Backend\\DemoApp.Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chris\\dev\\repos\\WeatherForecastDemoApp\\src\\DemoApp.Backend\\DemoApp.Backend.csproj",
+        "projectUniqueName": "C:\\Users\\chris\\dev\\repos\\DemoFullstackApplication\\src\\DemoApp.Backend\\DemoApp.Backend.csproj",
         "projectName": "DemoApp.Backend",
-        "projectPath": "C:\\Users\\chris\\dev\\repos\\WeatherForecastDemoApp\\src\\DemoApp.Backend\\DemoApp.Backend.csproj",
+        "projectPath": "C:\\Users\\chris\\dev\\repos\\DemoFullstackApplication\\src\\DemoApp.Backend\\DemoApp.Backend.csproj",
         "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chris\\dev\\repos\\WeatherForecastDemoApp\\src\\DemoApp.Backend\\obj\\",
+        "outputPath": "C:\\Users\\chris\\dev\\repos\\DemoFullstackApplication\\src\\DemoApp.Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
