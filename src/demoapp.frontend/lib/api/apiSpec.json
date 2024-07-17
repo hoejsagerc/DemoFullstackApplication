@@ -1,100 +1,102 @@
 {
-  "openapi": "3.0.1",
-  "info": {
-    "title": "DemoApp.Backend",
-    "version": "1.0"
-  },
-  "paths": {
-    "/weatherforecast": {
-      "get": {
-        "tags": ["DemoApp.Backend"],
-        "operationId": "GetWeatherForecast",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/WeatherForecastResponse"
+    "openapi": "3.0.1",
+    "info": {
+        "title": "DemoApp.Backend",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/weatherforecast": {
+            "get": {
+                "tags": [
+                    "DemoApp.Backend"
+                ],
+                "operationId": "GetWeatherForecast",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WeatherForecastResponse"
+                                }
+                            }
+                        }
+                    }
                 }
-              }
             }
-          }
         }
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "ForecastResponse": {
-        "type": "object",
-        "properties": {
-          "date": {
-            "type": "string",
-            "nullable": true
-          },
-          "temperatureC": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "temperatureF": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "summary": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "HourlyForecastResponse": {
-        "type": "object",
-        "properties": {
-          "hour": {
-            "type": "string",
-            "nullable": true
-          },
-          "summary": {
-            "type": "string",
-            "nullable": true
-          },
-          "temperatureC": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "temperatureF": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "WeatherForecastResponse": {
-        "type": "object",
-        "properties": {
-          "location": {
-            "type": "string",
-            "nullable": true
-          },
-          "todaysForecast": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/HourlyForecastResponse"
+    },
+    "components": {
+        "schemas": {
+            "ForecastResponse": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "temperatureC": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "temperatureF": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "summary": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
             },
-            "nullable": true
-          },
-          "weeklyForecast": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ForecastResponse"
+            "HourlyForecastResponse": {
+                "type": "object",
+                "properties": {
+                    "hour": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "summary": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "temperatureC": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "temperatureF": {
+                        "type": "integer",
+                        "format": "int32",
+                        "readOnly": true
+                    }
+                },
+                "additionalProperties": false
             },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      }
+            "WeatherForecastResponse": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "todaysForecast": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/HourlyForecastResponse"
+                        },
+                        "nullable": true
+                    },
+                    "weeklyForecast": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ForecastResponse"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            }
+        }
     }
-  }
 }

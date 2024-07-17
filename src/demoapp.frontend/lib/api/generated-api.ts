@@ -22,7 +22,7 @@ export class Client {
      * @return OK
      */
     getWeatherForecast(): Promise<WeatherForecastResponse> {
-        let url_ = this.baseUrl + "/weatherforecast";
+        let url_ = this.baseUrl + "/api/weatherforecast";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_: RequestInit = {

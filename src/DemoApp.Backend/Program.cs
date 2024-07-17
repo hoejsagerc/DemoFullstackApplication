@@ -65,7 +65,7 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-app.MapGet("/weatherforecast", ([FromServices] WeatherForecastService ws) =>
+app.MapGet("/api/weatherforecast", ([FromServices] WeatherForecastService ws) =>
 {
     var forecast = ws.GetWeatherForecast();
     return Results.Ok(forecast);

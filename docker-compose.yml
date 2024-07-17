@@ -1,31 +1,32 @@
 services:
   frontend:
-    container_name: DemoApp-Frontend
+    container_name: frontend
     build:
       context: ./src/demoapp.frontend/
       dockerfile: Dockerfile
     environment:
-      - NEXT_PUBLIC_BACKEND_URL="http://backend:8080"
+      - NEXT_PUBLIC_BACKEND_URL=http://backend:8080
     ports:
       - "3000:3000"
     networks:
       - demo-network
 
   backend:
-    container_name: DemoApp-Backend
+    container_name: backend
     build:
       context: .
       dockerfile: ./src/DemoApp.Backend/Dockerfile
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=db;Database=WeatherData;Username=postgres;Password=postgres
+      - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "8080:8080"
-    environment:
-      - ConnectionStrings__DefaultConnection="Host=localhost;Database=WeatherData;Username=postgres;Password=postgres"
     networks:
       - demo-network
 
   nginx:
     image: nginx:latest
-    container_name: DemoApp-nginx
+    container_name: nginx
     ports:
       - "80:80"
       - "443:443"
@@ -36,7 +37,7 @@ services:
 
   db:
     image: postgres:latest
-    container_name: DemoApp-db
+    container_name: db
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
