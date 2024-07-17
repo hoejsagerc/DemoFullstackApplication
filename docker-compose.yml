@@ -1,0 +1,51 @@
+services:
+  frontend:
+    container_name: DemoApp-Frontend
+    build:
+      context: ./src/demoapp.frontend/
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - demo-network
+
+  backend:
+    container_name: DemoApp-Backend
+    build:
+      context: .
+      dockerfile: ./src/DemoApp.Backend/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ConnectionStrings__DefaultConnection="Host=localhost;Database=WeatherData;Username=postgres;Password=postgres"
+    networks:
+      - demo-network
+
+  nginx:
+    image: nginx:latest
+    container_name: DemoApp-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - demo-network
+
+  db:
+    image: postgres:latest
+    container_name: DemoApp-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    # volumes:
+    #   - /mnt/HC_Volume_101025656/docker/postgres/data:/var/lib/postgresql/data
+    #   - /mnt/HC_Volume_101025656/docker/postgres/backups:/backups
+    networks:
+      - demo-network
+
+networks:
+  demo-network:
+    external: true
