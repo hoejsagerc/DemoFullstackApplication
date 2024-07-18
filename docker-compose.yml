@@ -33,8 +33,15 @@ services:
       - "443:443"
     volumes:
       - ./configs/nginx.conf:/etc/nginx/nginx.conf
+      - ~/nginx/letsencrypt:/etc/letsencrypt
     networks:
       - demo-network
+
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ~/nginx/letsencrypt:/etc/letsencrypt
+      - ~/nginx/webdata:/usr/share/nginx/html
 
   db:
     image: postgres:latest
@@ -45,8 +52,8 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./postgres/data:/var/lib/postgresql/data
-      - ./postgres/backups:/backups
+      - ~/postgres/data:/var/lib/postgresql/data
+      - ~/postgres/backups:/backups
     networks:
       - demo-network
 
