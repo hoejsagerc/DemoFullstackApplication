@@ -5,7 +5,7 @@ services:
       context: ./src/demoapp.frontend/
       dockerfile: Dockerfile
     env_file:
-      - path: ./configs/prod-frontend.env
+      - path: ./configs/frontend.env
         required: true
     ports:
       - "3000:3000"
@@ -18,8 +18,10 @@ services:
       context: .
       dockerfile: ./src/DemoApp.Backend/Dockerfile
     env_file:
-      - path: ./configs/prod-backend.env
+      - path: ./configs/backend.env
         required: true
+    depends_on:
+      - db
     ports:
       - "8080:8080"
     networks:
@@ -34,6 +36,8 @@ services:
     volumes:
       - ./configs/nginx.conf:/etc/nginx/nginx.conf
       - ~/nginx/letsencrypt:/etc/letsencrypt
+      - ./configs/temp-nginx.conf:/etc/nginx/conf.d/default.conf
+    #      - ./configs/prod-nginx.conf:/etc/nginx/conf.d/default.conf
     networks:
       - demo-network
 
