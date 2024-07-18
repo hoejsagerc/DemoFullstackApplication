@@ -59,4 +59,3 @@ services:
 
 networks:
   demo-network:
-    external: true
